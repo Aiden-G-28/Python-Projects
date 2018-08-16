@@ -1,0 +1,245 @@
+rustic_axe = 0
+lamp = 0
+ornate_knife = 0
+jeweled_amulet = 0
+basement_key = 0
+kitchen_key = 0
+
+front_barricade = 1
+horse_encounter = 1
+
+old_road_axe = 0
+
+death = 0
+
+def startarea():
+  while True:
+    print()
+    print("STARTING AREA")
+    print("")
+    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+    print("Do You...")
+    print("a: Look down at the water")
+    print("b: Look around the pond")
+    print("c: Glance at your clothes")
+    print("d: Walk down the path (Leave Area)")
+    start = input("")
+    print()
+    if start == 'a':
+      print("")
+    if start == 'b':
+      print("")
+    if start == 'c':
+      print("")
+    if start == 'd':
+      print("You travel down the path in the woods,")
+      print('contemplating what lies ahead.')
+      old_road()
+      break
+    #Cheating to areas for Testing
+    if start == "garden":
+      garden()
+      break
+    if start == "kitchen":
+      kitchen()
+      break
+    if start == "library":
+      library()
+      break
+    if start == "bedroom":
+      bedroom()
+      break
+
+def old_road():
+  global rustic_axe
+  global old_road_axe
+  while True:
+    print()
+    print("THE OLD ROAD")
+    print()
+    print("Do You...")
+    print("a:")
+    if old_road_axe == 0:
+      print("b: Take Axe")
+    print("c:")
+    print("d: Mansion Porch")
+    road_que = input("")
+    print()
+    if road_que == 'a':
+      print("")
+    if road_que == 'b' and old_road_axe == 0:
+      rustic_axe = 1
+      old_road_axe = 1
+      print("Took The Axe",rustic_axe)
+    if road_que == 'c':
+      print("")
+    if road_que == 'd':
+      print("")
+      mansion_porch()
+      break
+  
+def mansion_porch():
+  global rustic_axe
+  global front_barricade
+  while True:
+    print()
+    print("THE MANSION PORCH")
+    print('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
+    if front_barricade == 1:
+      print("The front door seems to be barricaded ")
+      print("with planks of wood. You doubt you have")
+      print("The strength to pry them off with your hands.")
+    elif front_barricade == 0:
+      print("The planks of wood lie scattered on the ground,")
+      print("along with the iron head of an axe.")
+    print()
+    print("Do You...")
+    print("a:")
+    print("b:")
+    print("c: Go Back")
+    if rustic_axe == 1:
+      print("d: Break the wooden planks with your axe")
+    por_que = input("")
+    print()
+    if por_que == 'a':
+      print("")
+    if por_que == 'b':
+      print("")
+    if por_que == 'd' and rustic_axe == 1:
+      print("You swing the axe down upon the boards,")
+      print("Shattering them. However, when you bring")
+      print("the axe down one final time, The head breaks")
+      print("off and clatters to the ground.")
+      rustic_axe = 0
+      front_barricade = 0
+    if por_que == 'c':
+      print("")
+      old_road()
+      break
+
+
+def Foyer():
+  while True:
+    print()
+    print("THE FOYER")
+    print("")
+    print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+    print("Do You...")
+    print("a:")
+
+
+def dining_room():
+  while True:
+    print()
+    print("THE DINING ROOM")
+    print()
+    print("Do You...")
+    print("a:")
+    print("b:")
+    print("c:")
+    din_que = input("")
+  
+def kitchen():
+  while True:
+    print()
+    print("THE KITCHEN")
+    print()
+    print("Do You...")
+    print("a:")
+    print("b:")
+    print("c:")
+    kit_que = input("")
+  
+def garden():
+  while True:
+    print()
+    print("THE GARDEN")
+    if horse_encounter == 1:
+      print("")
+      print("Do You...")
+      print("a: Walk up to the strange horse")
+      print("b:")
+      print("c:")
+    elif horse_encounter == 0:
+      print("")
+      print("Do You...")
+      print("a:")
+      print("b:")
+      print("c:")
+    gar_que = input("")
+    if gar_que == "a" and horse_encounter == 1:
+      horse()
+      break
+
+def horse():
+  while True:
+    global horse_encounter
+    global kitchen_key
+    print("")
+    print()
+    print("You...")
+    print("a:")
+    print("b: Try to take the key")
+    print("c: Move away from the horse")
+    horse_que = input("")
+    if horse_que == "b":
+      print("")
+      print()
+      print("You..")
+      print("a:")
+      print("b:")
+      print("c:")
+      peril_horse = input("")
+      if peril_horse == "b":
+        print("")
+        kitchen_key = 1
+        horse_encounter = 0
+        garden()
+        break
+      if peril_horse == "a":
+        print("")
+        print("~~~~~~~~~~")
+        print("GAME OVER")
+        print("~~~~~~~~~~")
+        break
+  if horse_que == "c":
+    print("You carefully back away from the")
+    print("horse-like creature.")
+    garden()
+    
+
+
+def bedroom():
+  while True:
+    print()
+    print("THE BEDROOM")
+    print()
+    print("Do You...")
+    print("a:")
+    print("b:")
+    print("c:")
+    bed_que = input("")
+  
+def library():
+  while True:
+    print()
+    print("THE LIBRARY")
+    print()
+    print("Do You...")
+    print("a:")
+    print("b:")
+    print("c:")
+    lib_que = input("")
+  
+def basement_entrance():
+  while True:
+    print()
+    print("THE BASEMENT ENTRANCE")
+    print()
+    print("Do You...")
+    print("a:")
+    print("b:")
+    print("c:")
+    ent_que = input("")
+  
+startarea()
